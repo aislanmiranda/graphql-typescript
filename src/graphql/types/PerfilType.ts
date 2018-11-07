@@ -15,6 +15,12 @@ const perfilType = new GraphQLObjectType({
           fields: () => ({
             nome: {
               type: GraphQLString
+            },
+            fantasia: {
+              type: GraphQLString
+            },
+            email: {
+              type: GraphQLString
             }
           })
         })

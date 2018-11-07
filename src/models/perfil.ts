@@ -2,11 +2,11 @@
 import mongoose from 'mongoose';
 
 const PerfilSchema = new mongoose.Schema({
-    empresa: [{
+    empresa: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Empresa',
         required: true
-    }],
+    },
     nome: {
         type: String,
         require: true

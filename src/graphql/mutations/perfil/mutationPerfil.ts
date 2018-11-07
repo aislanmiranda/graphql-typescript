@@ -23,4 +23,24 @@ const addPerfil = {
   }
 };
 
-export default addPerfil;
+const editPerfil = {
+  type: perfilType,
+  args: {
+    id: {
+      type: new GraphQLNonNull(GraphQLString)
+    },
+    nome: {
+      type: new GraphQLNonNull(GraphQLString),
+    }
+  },
+  resolve(root:any, params:any) {
+    return PerfilSchema.findByIdAndUpdate(
+      params.id,
+      params,
+      { new: true }
+    )
+      .catch(err => new Error(err));
+  }
+};
+
+export { addPerfil, editPerfil };
