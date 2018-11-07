@@ -1,7 +1,6 @@
-//const express = require("express");
+
 import express from 'express';
-const config = require('./config/env.json')[process.env.NODE_ENV || 'development'];
-// const mongoose = require('./config/mongoose');
+import c from './config/env/config';
 import * as mongoose from './config/mongoose';
 import graphqlHTTP from 'express-graphql';
 import cors from 'cors';
@@ -26,8 +25,8 @@ class Server {
         graphiql: true
       }));
 
-      this.app.listen(config.port, () => {
-        console.log(`GraphQL API rodando na porta ${config.port}`);
+      this.app.listen(c.port, () => {
+        console.log(`GraphQL API rodando na porta ${c.port}`);
       });
     }
 

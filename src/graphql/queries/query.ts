@@ -1,9 +1,9 @@
-import { GraphQLObjectType, 
-  GraphQLList, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql';
 import userType from "../types/UserType";
 import UserModel from '../../models/user';
+import { listaEmpresa } from './empresa.query'; 
+import { listaPerfil } from './perfil.query'; 
 
-// Query
 const queryType = new GraphQLObjectType({
   name: "Query",
   fields: () => {
@@ -30,7 +30,9 @@ const queryType = new GraphQLObjectType({
           }
           return user;
         }
-      }
+      },
+      empresas: listaEmpresa,
+      perfis: listaPerfil
     };
   }
 });

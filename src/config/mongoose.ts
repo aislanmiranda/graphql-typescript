@@ -1,12 +1,11 @@
-var env = process.env.NODE_ENV || "development",
-  config = require("./env.json")[env];
-
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+import c from './env/config';
 
 class DataBase {
-  private DB_URI = `${config.mongo_server}:${config.mongo_port}/${
-    config.mongo_base
-  }`;
+  //c = require('./../env/config')();
+  //c = require("./../config/env.json")[this.env];
+  env = process.env.NODE_ENV || "development";
+  private DB_URI = `${c.mongo_server}:${c.mongo_port}/${c.mongo_base}`;
   private DB_CONNECTION:any;
 
   constructor() {}
